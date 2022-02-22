@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UdemyProject.Abstracts.Inputs;
 using UdemyProject.Abstracts.Movements;
+using UdemyProject.Abstracts.Animations;
 using UdemyProject.Inputs;
 using UdemyProject.Movements;
+using UdemyProject.Animations;
 using UnityEngine;
 
 namespace UdemyProject.Controllers
@@ -12,23 +14,43 @@ namespace UdemyProject.Controllers
     {
         IPlayerInput _input;
         IMover _mover;
+        IMyAnimation _animation;
+        IFlip _flip;
+        Jump _jump;
 
         float _horizontal;
+        bool _isJump = false;
 
         private void Awake()
         {
             _input = new PcInput();
             _mover = new Mover(this);
+            _animation = new PlayerAnimation(GetComponent<Animator>());
+            _flip = new FlipWithTransform(this);
+            _jump = new Jump(GetComponent<Rigidbody2D>());
         }
 
         private void Update()
         {
             _horizontal = _input.Horizontal;
+            _animation.MoveAnimation(_horizontal);
+
+            if(_input.JumpButtonDown)
+            {
+                _isJump = true;
+            }
         }
 
         private void FixedUpdate()
         {
+            _flip.FlipCharacter(_horizontal);
             _mover.Tick(_horizontal);
+
+            if(_isJump)
+            {
+                _jump.TickWithFixedUpdate();
+                _isJump = false;
+            }
         }
     }
 }

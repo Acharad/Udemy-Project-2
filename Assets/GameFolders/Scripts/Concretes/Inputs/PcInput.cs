@@ -9,5 +9,6 @@ namespace UdemyProject.Inputs
     {
         public float Horizontal => Input.GetAxis("Horizontal");
         public float Vertical => Input.GetAxis("Vertical");
+        public bool JumpButtonDown => Input.GetButtonDown("Jump");
     }
 }

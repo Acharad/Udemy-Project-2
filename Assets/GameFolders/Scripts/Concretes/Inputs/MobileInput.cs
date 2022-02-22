@@ -10,5 +10,6 @@ namespace UdemyProject.Inputs
         //ileride eklenicek
         public float Horizontal => throw new System.NotImplementedException();
         public float Vertical => throw new System.NotImplementedException();
+        public bool JumpButtonDown => throw new System.NotImplementedException();
     }       
 }

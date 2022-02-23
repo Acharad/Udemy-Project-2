@@ -19,5 +19,12 @@ namespace UdemyProject.Animations
         {
             _animator.SetFloat("moveSpeed", Mathf.Abs(moveSpeed));
         }
+
+        public void JumpAnimation(bool isJump)
+        {
+            if(_animator.GetBool("isJump") == isJump) return;
+
+            _animator.SetBool("isJump", isJump);
+        }
     }    
 }

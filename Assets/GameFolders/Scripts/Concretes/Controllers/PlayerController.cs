@@ -36,12 +36,14 @@ namespace UdemyProject.Controllers
         private void Update()
         {
             _horizontal = _input.Horizontal;
-            _animation.MoveAnimation(_horizontal);
-
+            
             if(_input.JumpButtonDown && _iOnGround.IsGround)
             {
                 _isJump = true;
             }
+
+            _animation.JumpAnimation(!_iOnGround.IsGround);
+            _animation.MoveAnimation(_horizontal);
         }
 
         private void FixedUpdate()

@@ -7,5 +7,6 @@ namespace UdemyProject.Abstracts.Animations
     public interface IMyAnimation 
     {
         void MoveAnimation(float moveSpeed);
+        void JumpAnimation(bool isJump);
     }    
 }

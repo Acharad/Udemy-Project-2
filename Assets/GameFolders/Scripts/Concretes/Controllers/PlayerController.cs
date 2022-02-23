@@ -16,7 +16,9 @@ namespace UdemyProject.Controllers
         IMover _mover;
         IMyAnimation _animation;
         IFlip _flip;
+
         Jump _jump;
+        IOnGround _iOnGround;
 
         float _horizontal;
         bool _isJump = false;
@@ -28,6 +30,7 @@ namespace UdemyProject.Controllers
             _animation = new PlayerAnimation(GetComponent<Animator>());
             _flip = new FlipWithTransform(this);
             _jump = new Jump(GetComponent<Rigidbody2D>());
+            _iOnGround = GetComponent<IOnGround>();
         }
 
         private void Update()
@@ -35,7 +38,7 @@ namespace UdemyProject.Controllers
             _horizontal = _input.Horizontal;
             _animation.MoveAnimation(_horizontal);
 
-            if(_input.JumpButtonDown)
+            if(_input.JumpButtonDown && _iOnGround.IsGround)
             {
                 _isJump = true;
             }

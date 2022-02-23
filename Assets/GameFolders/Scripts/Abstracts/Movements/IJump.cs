@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IJump : MonoBehaviour
+namespace UdemyProject.Abstracts.Movements
 {
-    // Start is called before the first frame update
-    void Start()
+    public interface IJump
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        void TickWithFixedUpdate();
+        bool IsJump { get; set; }
+    }    
 }

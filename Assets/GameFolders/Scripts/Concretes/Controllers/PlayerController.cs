@@ -17,12 +17,12 @@ namespace UdemyProject.Controllers
         IMyAnimation _animation;
         IFlip _flip;
 
-        Jump _jump;
+        IJump _jump;
         IOnGround _iOnGround;
 
         float _horizontal;
-        bool _isJump = false;
-        bool _isAttack = false;
+        // bool _isJump = false;
+        // bool _isAttack = false;
 
         private void Awake()
         {
@@ -30,8 +30,8 @@ namespace UdemyProject.Controllers
             _mover = new Mover(this);
             _animation = new PlayerAnimation(GetComponent<Animator>());
             _flip = new FlipWithTransform(this);
-            _jump = new Jump(GetComponent<Rigidbody2D>());
             _iOnGround = GetComponent<IOnGround>();
+            _jump = new JumpMultiple(GetComponent<Rigidbody2D>(), _iOnGround);
         }
 
         private void Update()
@@ -45,9 +45,9 @@ namespace UdemyProject.Controllers
                 return;
             }
             
-            if(_input.JumpButtonDown && _iOnGround.IsGround)
+            if(_input.JumpButtonDown)
             {
-                _isJump = true;
+                _jump.IsJump = true;
             }
 
             _animation.JumpAnimation(!_iOnGround.IsGround);
@@ -59,11 +59,7 @@ namespace UdemyProject.Controllers
             _flip.FlipCharacter(_horizontal);
             _mover.Tick(_horizontal);
 
-            if(_isJump)
-            {
-                _jump.TickWithFixedUpdate();
-                _isJump = false;
-            }
+            _jump.TickWithFixedUpdate();
         }
     }
 }

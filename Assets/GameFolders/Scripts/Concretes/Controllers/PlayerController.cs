@@ -22,6 +22,7 @@ namespace UdemyProject.Controllers
 
         float _horizontal;
         bool _isJump = false;
+        bool _isAttack = false;
 
         private void Awake()
         {
@@ -36,6 +37,13 @@ namespace UdemyProject.Controllers
         private void Update()
         {
             _horizontal = _input.Horizontal;
+
+            if(_input.AttackButtonDown)
+            {
+                Debug.Log("attack clicked");
+                _animation.AttackAnimation();
+                return;
+            }
             
             if(_input.JumpButtonDown && _iOnGround.IsGround)
             {

@@ -26,5 +26,10 @@ namespace UdemyProject.Animations
 
             _animator.SetBool("isJump", isJump);
         }
+
+        public void AttackAnimation()
+        {
+            _animator.SetTrigger("attack");
+        }
     }    
 }

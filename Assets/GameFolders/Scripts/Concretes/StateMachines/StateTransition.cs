@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using UdemyProject.Abstracts.StateMachines;
 using UnityEngine;
 
-public class StateTransition : MonoBehaviour
+namespace UdemyProject.StateMachines
 {
-    // Start is called before the first frame update
-    void Start()
+    public class StateTransition
     {
-        
-    }
+        IState _from;
+        IState _to;
+        System.Func<bool> _condition;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        public IState From => _from;
+        public IState To => _to;
+        public System.Func<bool> Condition => _condition;
+
+        public StateTransition(IState from, IState to, System.Func<bool> condition)
+        {
+            _from = from;
+            _to = to;
+            _condition = condition;
+        }
+    }    
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UdemyProject.Abstracts.Controllers;
 using UdemyProject.Controllers;
 using UdemyProject.Abstracts.Movements;
 using UnityEngine;
@@ -8,11 +9,11 @@ namespace UdemyProject.Movements
 {
     public class FlipWithTransform : IFlip
     {
-        PlayerController _player;
+        IEntityController _controller;
 
-        public FlipWithTransform(PlayerController player)
+        public FlipWithTransform(IEntityController controller)
         {
-            _player = player;
+            _controller = controller;
         }
 
         public void FlipCharacter(float direction)
@@ -21,9 +22,9 @@ namespace UdemyProject.Movements
 
             float mathValue = Mathf.Sign(direction);
 
-            if(mathValue != _player.transform.localScale.x)
+            if(mathValue != _controller.transform.localScale.x)
             {
-                _player.transform.localScale = new Vector2(mathValue, 1f);
+                _controller.transform.localScale = new Vector2(mathValue, 1f);
             }
         }
     }

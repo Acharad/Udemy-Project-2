@@ -11,7 +11,7 @@ namespace UdemyProject.Abstracts.Combats
 
         public int Damage => damage;
 
-        public void Attack(ITakeHit takeHit)
+        public virtual void Attack(ITakeHit takeHit)
         {
             takeHit.TakeHit(this);
         }

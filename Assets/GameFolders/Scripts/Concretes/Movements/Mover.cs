@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UdemyProject.Abstracts.Controllers;
 using UdemyProject.Abstracts.Movements;
 using UdemyProject.Controllers;
 using UnityEngine;
@@ -8,19 +9,21 @@ namespace UdemyProject.Movements
 {
     public class Mover : IMover
     {
-        PlayerController _playerController;
-        float moveSpeed = 3f;
+        IEntityController _controller;
+        // float moveSpeed = 3f;
+        private float _moveSpeed;
 
-        public Mover(PlayerController playerController)
+        public Mover(IEntityController controller, float moveSpeed)
         {
-            _playerController = playerController;
+            _controller = controller;
+            _moveSpeed = moveSpeed;
         }
 
         public void Tick(float horizontal)
         {
             if(horizontal == 0f) return;
 
-            _playerController.transform.Translate(Vector2.right * horizontal * Time.deltaTime * moveSpeed);
+            _controller.transform.Translate(Vector2.right * horizontal * Time.deltaTime * _moveSpeed);
         }
     }    
 }

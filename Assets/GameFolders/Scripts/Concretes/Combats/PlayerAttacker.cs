@@ -41,7 +41,7 @@ namespace UdemyProject.Combats
 
                 if(takeHit != null)
                 {
-                    takeHit.TakeHit(this);
+                    Attack(takeHit);
                 }
              }
 

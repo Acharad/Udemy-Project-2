@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UdemyProject.Abstracts.Inputs;
 using UdemyProject.Abstracts.Movements;
 using UdemyProject.Abstracts.Animations;
+using UdemyProject.Abstracts.Controllers;
 using UdemyProject.Inputs;
 using UdemyProject.Movements;
 using UdemyProject.Animations;
@@ -10,12 +11,15 @@ using UnityEngine;
 
 namespace UdemyProject.Controllers
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IEntityController
     {
+        [SerializeField] private float moveSpeed = 3f;
+        
         IPlayerInput _input;
         IMover _mover;
         IMyAnimation _animation;
         IFlip _flip;
+        
 
         IJump _jump;
         IOnGround _iOnGround;
@@ -27,7 +31,7 @@ namespace UdemyProject.Controllers
         private void Awake()
         {
             _input = new PcInput();
-            _mover = new Mover(this);
+            _mover = new Mover(this, moveSpeed);
             _animation = new PlayerAnimation(GetComponent<Animator>());
             _flip = new FlipWithTransform(this);
             _iOnGround = GetComponent<IOnGround>();

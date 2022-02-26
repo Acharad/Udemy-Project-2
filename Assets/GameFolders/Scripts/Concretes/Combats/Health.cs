@@ -5,11 +5,15 @@ using UnityEngine;
 
 namespace UdemyProject.Combats
 {
-    public class Health : MonoBehaviour, ITakeHit
+    public class Health : MonoBehaviour, IHealth
     {
         [SerializeField] int maxHealth = 3;
 
         int _currentHealth;
+
+        public int CurrentHealth => _currentHealth;
+
+        public event System.Action OnHealthChanged;
 
         private void Awake()
         {
@@ -19,6 +23,7 @@ namespace UdemyProject.Combats
         public void TakeHit(IAttacker attacker)
         {
             _currentHealth -= attacker.Damage;
+            OnHealthChanged?.Invoke();
         }
     }    
 }

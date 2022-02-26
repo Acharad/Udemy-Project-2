@@ -41,19 +41,19 @@ namespace  UdemyProject.Controllers
 
         private void Start()
         {
-            Idle idle = new Idle();
+            Idle idle = new Idle(_mover, _animation);
             Walk walk = new Walk();
             ChasePlayer chasePlayer = new ChasePlayer();
             Attack attack = new Attack();
             TakeHit takeHit = new TakeHit();
             Dead dead = new Dead();
             
-            _stateMachine.AddTransition(idle, walk, () => isWalk );
+            _stateMachine.AddTransition(idle, walk, () => !idle.IsIdle );
             _stateMachine.AddTransition(idle, chasePlayer, () => DistanceFromMeToPlayer() < chaseDistance);
             _stateMachine.AddTransition(walk, chasePlayer, () => DistanceFromMeToPlayer() < chaseDistance);
             _stateMachine.AddTransition(chasePlayer, attack, () => DistanceFromMeToPlayer() < attackDistance);
             
-            _stateMachine.AddTransition(walk, idle, () => isWalk);
+            _stateMachine.AddTransition(walk, idle, () => !isWalk);
             _stateMachine.AddTransition(chasePlayer, idle, () => DistanceFromMeToPlayer() > chaseDistance);
             _stateMachine.AddTransition(attack, chasePlayer, () => DistanceFromMeToPlayer() > attackDistance);
             

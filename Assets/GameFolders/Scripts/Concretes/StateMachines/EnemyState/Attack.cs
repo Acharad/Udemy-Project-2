@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UdemyProject.Abstracts.StateMachines;
 using UnityEngine;
 
@@ -9,17 +7,17 @@ namespace UdemyProject.StateMachines.EnemyState
     {
         void IState.OnEnter()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Attack on enter");
         }
 
         void IState.OnExit()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Attack on exit");
         }
 
         void IState.Tick()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Attack tick");
         }
     }
 }

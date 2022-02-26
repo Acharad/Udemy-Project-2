@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
+using UdemyProject.Abstracts.StateMachines;
 using UnityEngine;
 
-public class Dead : MonoBehaviour
+namespace UdemyProject.StateMachines.EnemyState
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Dead : IState
     {
-        
-    }
+        void IState.OnEnter()
+        {
+            Debug.Log("Dead on enter");
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        void IState.OnExit()
+        {
+            Debug.Log("Dead on exit");
+        }
+
+        void IState.Tick()
+        {
+            Debug.Log("Dead tick");
+        }
     }
 }

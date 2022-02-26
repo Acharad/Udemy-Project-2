@@ -9,6 +9,7 @@ namespace UdemyProject.StateMachines
     public class StateMachine
     {
         List<StateTransition> _stateTransitions = new List<StateTransition>();
+        private List<StateTransition> _anyStateTransitions = new List<StateTransition>();
 
         IState _currentState; // Idle
 
@@ -39,12 +40,16 @@ namespace UdemyProject.StateMachines
 
         private StateTransition CheckForTransition()
         {
+            foreach (StateTransition anyStateTransition in _anyStateTransitions)
+            {
+                if (anyStateTransition.Condition.Invoke()) return anyStateTransition;
+            }
+            
             foreach(StateTransition stateTransition in _stateTransitions)
             {
                 if(stateTransition.Condition() && stateTransition.From == _currentState)
                     return stateTransition;
             }
-
             return null;
         }
 
@@ -52,6 +57,12 @@ namespace UdemyProject.StateMachines
         {
             StateTransition stateTransition = new StateTransition(from, to, condition);
             _stateTransitions.Add(stateTransition);
+        }
+
+        public void AddAnyState(IState to, System.Func<bool> condition)
+        {
+            StateTransition anyStateTransition = new StateTransition(null, to, condition);
+            _anyStateTransitions.Add(anyStateTransition);
         }
     }    
 }

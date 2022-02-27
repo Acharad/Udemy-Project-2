@@ -45,7 +45,7 @@ namespace  UdemyProject.Controllers
         {
             Idle idle = new Idle(this , _mover, _flip, _animation);
             Walk walk = new Walk(this, _mover, _animation, patrols);
-            ChasePlayer chasePlayer = new ChasePlayer();
+            ChasePlayer chasePlayer = new ChasePlayer(this, _player, _mover, _flip, _animation);
             Attack attack = new Attack();
             TakeHit takeHit = new TakeHit();
             Dead dead = new Dead();

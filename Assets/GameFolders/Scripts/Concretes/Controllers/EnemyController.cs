@@ -19,8 +19,10 @@ namespace  UdemyProject.Controllers
         [SerializeField] private float chaseDistance = 3f;
         [SerializeField] private float attackDistance = 1f;
         
-        [SerializeField] private bool isWalk = false;
+        // [SerializeField] private bool isWalk = false;
         [SerializeField] private bool isTakeHit = false;
+
+        [SerializeField] private Transform[] patrols;
         
         
         private IMover _mover;
@@ -41,8 +43,8 @@ namespace  UdemyProject.Controllers
 
         private void Start()
         {
-            Idle idle = new Idle(_mover, _animation);
-            Walk walk = new Walk();
+            Idle idle = new Idle(this , _mover, _flip, _animation);
+            Walk walk = new Walk(this, _mover, _animation, patrols);
             ChasePlayer chasePlayer = new ChasePlayer();
             Attack attack = new Attack();
             TakeHit takeHit = new TakeHit();
@@ -53,7 +55,7 @@ namespace  UdemyProject.Controllers
             _stateMachine.AddTransition(walk, chasePlayer, () => DistanceFromMeToPlayer() < chaseDistance);
             _stateMachine.AddTransition(chasePlayer, attack, () => DistanceFromMeToPlayer() < attackDistance);
             
-            _stateMachine.AddTransition(walk, idle, () => !isWalk);
+            _stateMachine.AddTransition(walk, idle, () => !walk.IsWalking);
             _stateMachine.AddTransition(chasePlayer, idle, () => DistanceFromMeToPlayer() > chaseDistance);
             _stateMachine.AddTransition(attack, chasePlayer, () => DistanceFromMeToPlayer() > attackDistance);
             

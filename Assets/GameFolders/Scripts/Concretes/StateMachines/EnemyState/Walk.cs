@@ -10,7 +10,7 @@ namespace UdemyProject.StateMachines.EnemyState
     {
         private IMover _mover;
         private IMyAnimation _animation;
-        // private IFlip _flip;
+        private IFlip _flip;
         private IEntityController _entityController;
 
         private int _patrolIndex = 0;
@@ -21,11 +21,11 @@ namespace UdemyProject.StateMachines.EnemyState
 
         public bool IsWalking { get; private set; }
 
-        public Walk(IEntityController entityController,IMover mover, IMyAnimation animation, params Transform[] patrols)
+        public Walk(IEntityController entityController,IMover mover, IMyAnimation animation, IFlip flip, params Transform[] patrols)
         {
             _mover = mover;
             _animation = animation;
-            // _flip = flip;
+            _flip = flip;
             // _moveSpeed = moveSpeed;
             _patrols = patrols;
             _entityController = entityController;
@@ -33,8 +33,12 @@ namespace UdemyProject.StateMachines.EnemyState
         
         void IState.OnEnter()
         {
-            _direction = _entityController.transform.localScale.x;
             _currentPatrol = _patrols[_patrolIndex];
+
+            Vector3 leftOrRight = _currentPatrol.position - _entityController.transform.position;
+            _flip.FlipCharacter(leftOrRight.x > 0f ? 1f : -1f);
+            
+            _direction = _entityController.transform.localScale.x;
             
             _animation.MoveAnimation(1f);
             IsWalking = true;
@@ -53,8 +57,7 @@ namespace UdemyProject.StateMachines.EnemyState
             
             if (_patrolIndex >= _patrols.Length)
                 _patrolIndex = 0;
-
-            _currentPatrol = _patrols[_patrolIndex];
+            
             Debug.Log(_currentPatrol);
         }
 

@@ -9,10 +9,8 @@ namespace UdemyProject.StateMachines.EnemyState
 {
     public class Idle : IState
     {
-        private IEntityController _entityController;
         private IMover _mover;
         private IMyAnimation _animation;
-        private IFlip _flip;
 
         private float _maxStandTime;
         private float _currentStandTime = 0f;
@@ -20,11 +18,10 @@ namespace UdemyProject.StateMachines.EnemyState
         public bool IsIdle { get; private set; }
         
         //ctor method
-        public Idle(IEntityController entityController, IMover mover, IFlip flip, IMyAnimation animation)
+        public Idle(IMover mover, IMyAnimation animation)
         {
-            _entityController = entityController;
             _mover = mover;
-            _flip = flip;
+            // _flip = flip;
             _animation = animation;
         }
         void IState.OnEnter()
@@ -40,7 +37,7 @@ namespace UdemyProject.StateMachines.EnemyState
         {
             _currentStandTime = 0f;
             Debug.Log("Idle on exit");
-            _flip.FlipCharacter(_entityController.transform.localScale.x * -1);
+            // _flip.FlipCharacter(_entityController.transform.localScale.x * -1);
         }
 
         void IState.Tick()

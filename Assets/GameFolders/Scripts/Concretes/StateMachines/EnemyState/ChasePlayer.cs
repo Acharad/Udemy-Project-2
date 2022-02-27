@@ -35,9 +35,9 @@ namespace UdemyProject.StateMachines.EnemyState
 
         void IState.Tick()
         {
-            Vector3 LeftOrRight = _player.transform.position - _enemy.transform.position;
+            Vector3 leftOrRight = _player.transform.position - _enemy.transform.position;
 
-            if (LeftOrRight.x > 0)
+            if (leftOrRight.x > 0)
             {
                 _mover.Tick(1.5f);
                 _flip.FlipCharacter(1f);

@@ -43,8 +43,8 @@ namespace  UdemyProject.Controllers
 
         private void Start()
         {
-            Idle idle = new Idle(this , _mover, _flip, _animation);
-            Walk walk = new Walk(this, _mover, _animation, patrols);
+            Idle idle = new Idle(_mover, _animation);
+            Walk walk = new Walk(this, _mover, _animation, _flip, patrols);
             ChasePlayer chasePlayer = new ChasePlayer(this, _player, _mover, _flip, _animation);
             Attack attack = new Attack();
             TakeHit takeHit = new TakeHit();

@@ -33,6 +33,8 @@ namespace UdemyProject.StateMachines.EnemyState
         
         void IState.OnEnter()
         {
+            if (_patrols.Length < 1) return;
+            
             _currentPatrol = _patrols[_patrolIndex];
 
             Vector3 leftOrRight = _currentPatrol.position - _entityController.transform.position;
@@ -63,6 +65,8 @@ namespace UdemyProject.StateMachines.EnemyState
 
         void IState.Tick()
         {
+            if (_currentPatrol == null) return;
+            
             if (Vector2.Distance(_entityController.transform.position, _currentPatrol.position) <= 0.2f)
             {
                 IsWalking = false;

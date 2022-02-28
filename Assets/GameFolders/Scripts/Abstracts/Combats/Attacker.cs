@@ -5,7 +5,8 @@ using UnityEngine;
 
 namespace UdemyProject.Abstracts.Combats
 {
-    public abstract class Attacker : MonoBehaviour, IAttacker
+    public abstract class 
+        Attacker : MonoBehaviour, IAttacker
     {
         [SerializeField] int damage = 1;
 

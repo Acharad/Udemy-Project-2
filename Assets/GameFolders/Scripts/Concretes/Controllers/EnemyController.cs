@@ -17,11 +17,14 @@ namespace  UdemyProject.Controllers
     {
         [Header("Movements")]
         [SerializeField] private float moveSpeed = 2f;
+        [SerializeField] private Transform[] patrols;
         
-        [Header("State Machines")]
+        [Header("Attacks")]
         [SerializeField] private float chaseDistance = 3f;
         [SerializeField] private float attackDistance = 1f;
-        [SerializeField] private Transform[] patrols;
+        [SerializeField] private float attackDelay = 1f;
+        
+        
         
         // [SerializeField] private bool isWalk = false;
         // [SerializeField] private bool isTakeHit = false;
@@ -35,6 +38,7 @@ namespace  UdemyProject.Controllers
         private StateMachine _stateMachine;
         private IEntityController _player;
         private IHealth _health;
+        private IAttacker _attacker;
         private void Awake()
         {
             _mover = new Mover(this, moveSpeed);
@@ -42,6 +46,7 @@ namespace  UdemyProject.Controllers
             _flip = new FlipWithTransform(this);
             _stateMachine = new StateMachine();
             _health = GetComponent<IHealth>();
+            _attacker = GetComponent<IAttacker>();
             _player = FindObjectOfType<PlayerController>();
         }
 
@@ -50,9 +55,9 @@ namespace  UdemyProject.Controllers
             Idle idle = new Idle(_mover, _animation);
             Walk walk = new Walk(this, _mover, _animation, _flip, patrols);
             ChasePlayer chasePlayer = new ChasePlayer(this, _player, _mover, _flip, _animation);
-            Attack attack = new Attack();
+            Attack attack = new Attack(this, _player, _flip, _animation, _attacker, attackDelay);
             TakeHit takeHit = new TakeHit(_health, _animation);
-            Dead dead = new Dead();
+            Dead dead = new Dead(this, _animation);
             
             _stateMachine.AddTransition(idle, walk, () => !idle.IsIdle );
             _stateMachine.AddTransition(idle, chasePlayer, () => DistanceFromMeToPlayer() < chaseDistance);
@@ -64,7 +69,7 @@ namespace  UdemyProject.Controllers
             _stateMachine.AddTransition(attack, chasePlayer, () => DistanceFromMeToPlayer() > attackDistance);
             
             _stateMachine.AddAnyState(takeHit, () => takeHit.IsTakeHit);
-            _stateMachine.AddAnyState(dead, () => _health.CurrentHealth < 1);
+            _stateMachine.AddAnyState(dead, () => _health.IsDead);
             
             _stateMachine.AddTransition(takeHit, chasePlayer, () => !takeHit.IsTakeHit);
 

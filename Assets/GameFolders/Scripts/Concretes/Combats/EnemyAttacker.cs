@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace UdemyProject.Combats
 {
-    public class EnemyAttack : Attacker
+    public class EnemyAttacker : Attacker
     {
         
     }

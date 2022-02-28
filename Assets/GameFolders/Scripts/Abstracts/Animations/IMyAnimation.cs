@@ -10,5 +10,6 @@ namespace UdemyProject.Abstracts.Animations
         void JumpAnimation(bool isJump);
         void AttackAnimation();
         void TakeHitAnimation();
+        void DeadAnimation();
     }    
 }

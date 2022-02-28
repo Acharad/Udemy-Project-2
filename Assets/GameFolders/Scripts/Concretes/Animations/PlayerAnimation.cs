@@ -36,5 +36,10 @@ namespace UdemyProject.Animations
         {
             _animator.SetTrigger("takeHit");
         }
+
+        public void DeadAnimation()
+        {
+            _animator.SetTrigger("dead");
+        }
     }    
 }

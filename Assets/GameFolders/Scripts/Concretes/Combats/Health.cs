@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UdemyProject.Abstracts.Combats;
@@ -8,13 +9,25 @@ namespace UdemyProject.Combats
     public class Health : MonoBehaviour, IHealth
     {
         [SerializeField] int maxHealth = 3;
-
         int _currentHealth;
-
+        
         public int CurrentHealth => _currentHealth;
 
-        public event System.Action OnHealthChanged;
+        public bool IsDead => _currentHealth < 1;
+        public void Heal(int lifeCount)
+        {
+            throw new NotImplementedException();
+        }
+        
+        // event Action<int, int> IHealth.OnHealthChanged
+        // {
+        //     add => throw new NotImplementedException();
+        //     remove => throw new NotImplementedException();
+        // }
 
+        public event Action OnHealthChanged;
+        public event Action OnDead;
+        
         private void Awake()
         {
             _currentHealth = maxHealth;
@@ -22,6 +35,8 @@ namespace UdemyProject.Combats
 
         public void TakeHit(IAttacker attacker)
         {
+            if (IsDead) return;
+            
             _currentHealth -= attacker.Damage;
             OnHealthChanged?.Invoke();
         }

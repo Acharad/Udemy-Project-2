@@ -21,19 +21,19 @@ namespace UdemyProject.StateMachines.EnemyState
             _flip = flip;
             _animation = animation;
         }
-        void IState.OnEnter()
+        public void OnEnter()
         {
             _animation.MoveAnimation(1f);
             Debug.Log("ChasePlayer on enter");
         }
 
-        void IState.OnExit()
+        public void OnExit()
         {
             _animation.MoveAnimation(0f);   
             Debug.Log("ChasePlayer on exit");
         }
 
-        void IState.Tick()
+        public void Tick()
         {
             Vector3 leftOrRight = _player.transform.position - _enemy.transform.position;
 

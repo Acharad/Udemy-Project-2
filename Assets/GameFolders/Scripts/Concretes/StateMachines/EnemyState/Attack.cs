@@ -5,17 +5,18 @@ namespace UdemyProject.StateMachines.EnemyState
 {
     public class Attack : IState
     {
-        void IState.OnEnter()
+        public void OnEnter()
         {
+            
             Debug.Log("Attack on enter");
         }
 
-        void IState.OnExit()
+        public void OnExit()
         {
             Debug.Log("Attack on exit");
         }
 
-        void IState.Tick()
+        public void Tick()
         {
             Debug.Log("Attack tick");
         }

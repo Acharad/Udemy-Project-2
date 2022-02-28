@@ -31,7 +31,7 @@ namespace UdemyProject.StateMachines.EnemyState
             _entityController = entityController;
         }
         
-        void IState.OnEnter()
+        public void OnEnter()
         {
             if (_patrols.Length < 1) return;
             
@@ -47,7 +47,7 @@ namespace UdemyProject.StateMachines.EnemyState
             Debug.Log("Walk on enter");
         }
 
-        void IState.OnExit()
+        public void OnExit()
         {
             _direction *= -1;
             // _flip.FlipCharacter(_direction);
@@ -63,7 +63,7 @@ namespace UdemyProject.StateMachines.EnemyState
             Debug.Log(_currentPatrol);
         }
 
-        void IState.Tick()
+        public void Tick()
         {
             if (_currentPatrol == null) return;
             

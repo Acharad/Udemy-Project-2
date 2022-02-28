@@ -5,17 +5,17 @@ namespace UdemyProject.StateMachines.EnemyState
 {
     public class Dead : IState
     {
-        void IState.OnEnter()
+        public void OnEnter()
         {
             Debug.Log("Dead on enter");
         }
 
-        void IState.OnExit()
+        public void OnExit()
         {
             Debug.Log("Dead on exit");
         }
 
-        void IState.Tick()
+        public void Tick()
         {
             Debug.Log("Dead tick");
         }

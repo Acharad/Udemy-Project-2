@@ -15,14 +15,18 @@ namespace  UdemyProject.Controllers
 {
     public class EnemyController : MonoBehaviour, IEntityController
     {
+        [Header("Movements")]
         [SerializeField] private float moveSpeed = 2f;
+        
+        [Header("State Machines")]
         [SerializeField] private float chaseDistance = 3f;
         [SerializeField] private float attackDistance = 1f;
+        [SerializeField] private Transform[] patrols;
         
         // [SerializeField] private bool isWalk = false;
-        [SerializeField] private bool isTakeHit = false;
+        // [SerializeField] private bool isTakeHit = false;
 
-        [SerializeField] private Transform[] patrols;
+        
         
         
         private IMover _mover;
@@ -47,7 +51,7 @@ namespace  UdemyProject.Controllers
             Walk walk = new Walk(this, _mover, _animation, _flip, patrols);
             ChasePlayer chasePlayer = new ChasePlayer(this, _player, _mover, _flip, _animation);
             Attack attack = new Attack();
-            TakeHit takeHit = new TakeHit();
+            TakeHit takeHit = new TakeHit(_health, _animation);
             Dead dead = new Dead();
             
             _stateMachine.AddTransition(idle, walk, () => !idle.IsIdle );
@@ -59,8 +63,10 @@ namespace  UdemyProject.Controllers
             _stateMachine.AddTransition(chasePlayer, idle, () => DistanceFromMeToPlayer() > chaseDistance);
             _stateMachine.AddTransition(attack, chasePlayer, () => DistanceFromMeToPlayer() > attackDistance);
             
+            _stateMachine.AddAnyState(takeHit, () => takeHit.IsTakeHit);
             _stateMachine.AddAnyState(dead, () => _health.CurrentHealth < 1);
-            _stateMachine.AddAnyState(takeHit, () => isTakeHit);
+            
+            _stateMachine.AddTransition(takeHit, chasePlayer, () => !takeHit.IsTakeHit);
 
             _stateMachine.SetState(idle);
         }

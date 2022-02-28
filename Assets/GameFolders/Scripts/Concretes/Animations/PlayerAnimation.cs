@@ -31,5 +31,10 @@ namespace UdemyProject.Animations
         {
             _animator.SetTrigger("attack");
         }
+
+        public void TakeHitAnimation()
+        {
+            _animator.SetTrigger("takeHit");
+        }
     }    
 }

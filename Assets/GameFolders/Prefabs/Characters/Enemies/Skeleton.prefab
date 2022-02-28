@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 3296153393757570896, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296153393757570896, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: patrols.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6042881283634332566, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
       propertyPath: m_Size.x
       value: 0.47913006
@@ -37,11 +45,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6844503405255322944, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 10.17
       objectReference: {fileID: 0}
     - target: {fileID: 6844503405255322944, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.728
+      value: -0.266
       objectReference: {fileID: 0}
     - target: {fileID: 6844503405255322944, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
       propertyPath: m_LocalPosition.z

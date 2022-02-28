@@ -24,7 +24,7 @@ namespace UdemyProject.StateMachines.EnemyState
             // _flip = flip;
             _animation = animation;
         }
-        void IState.OnEnter()
+        public void OnEnter()
         {
             IsIdle = true;
             _animation.MoveAnimation(0f);
@@ -33,14 +33,14 @@ namespace UdemyProject.StateMachines.EnemyState
             _maxStandTime = Random.Range(4f, 10f);
         }
 
-        void IState.OnExit()
+        public void OnExit()
         {
             _currentStandTime = 0f;
             Debug.Log("Idle on exit");
             // _flip.FlipCharacter(_entityController.transform.localScale.x * -1);
         }
 
-        void IState.Tick()
+        public void Tick()
         {
             _mover.Tick(0f);
 

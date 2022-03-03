@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UdemyProject.Abstracts.Animations;
 using UdemyProject.Abstracts.Combats;
 using UdemyProject.Abstracts.Controllers;
@@ -24,40 +21,30 @@ namespace  UdemyProject.Controllers
         [SerializeField] private float attackDistance = 1f;
         [SerializeField] private float attackDelay = 1f;
         
-        
-        
-        // [SerializeField] private bool isWalk = false;
-        // [SerializeField] private bool isTakeHit = false;
-
-        
-        
-        
-        private IMover _mover;
-        private IMyAnimation _animation;
-        private IFlip _flip;
         private StateMachine _stateMachine;
         private IEntityController _player;
-        private IHealth _health;
-        private IAttacker _attacker;
+        
         private void Awake()
         {
-            _mover = new Mover(this, moveSpeed);
-            _animation = new PlayerAnimation(GetComponent<Animator>());
-            _flip = new FlipWithTransform(this);
             _stateMachine = new StateMachine();
-            _health = GetComponent<IHealth>();
-            _attacker = GetComponent<IAttacker>();
             _player = FindObjectOfType<PlayerController>();
         }
 
         private void Start()
         {
-            Idle idle = new Idle(_mover, _animation);
-            Walk walk = new Walk(this, _mover, _animation, _flip, patrols);
-            ChasePlayer chasePlayer = new ChasePlayer(this, _player, _mover, _flip, _animation);
-            Attack attack = new Attack(this, _player, _flip, _animation, _attacker, attackDelay);
-            TakeHit takeHit = new TakeHit(_health, _animation);
-            Dead dead = new Dead(this, _animation);
+            IMover mover = new Mover(this, moveSpeed);
+            IMyAnimation myAnimation = new PlayerAnimation(GetComponent<Animator>());
+            IFlip flip = new FlipWithTransform(this);
+            
+            IHealth health = GetComponent<IHealth>();
+            IAttacker attacker = GetComponent<IAttacker>();
+            
+            Idle idle = new Idle(mover, myAnimation);
+            Walk walk = new Walk(this, mover, myAnimation, flip, patrols);
+            ChasePlayer chasePlayer = new ChasePlayer(mover, flip, myAnimation, IsPlayerRightSide);
+            Attack attack = new Attack(_player.transform.GetComponent<IHealth>(), flip, myAnimation, attacker, attackDelay, IsPlayerRightSide);
+            TakeHit takeHit = new TakeHit(health, myAnimation);
+            Dead dead = new Dead(this, myAnimation);
             
             _stateMachine.AddTransition(idle, walk, () => !idle.IsIdle );
             _stateMachine.AddTransition(idle, chasePlayer, () => DistanceFromMeToPlayer() < chaseDistance);
@@ -69,7 +56,7 @@ namespace  UdemyProject.Controllers
             _stateMachine.AddTransition(attack, chasePlayer, () => DistanceFromMeToPlayer() > attackDistance);
             
             _stateMachine.AddAnyState(takeHit, () => takeHit.IsTakeHit);
-            _stateMachine.AddAnyState(dead, () => _health.IsDead);
+            _stateMachine.AddAnyState(dead, () => health.IsDead);
             
             _stateMachine.AddTransition(takeHit, chasePlayer, () => !takeHit.IsTakeHit);
 
@@ -96,6 +83,21 @@ namespace  UdemyProject.Controllers
         private float DistanceFromMeToPlayer()
         {
             return Vector2.Distance(transform.position, _player.transform.position);
+        }
+
+        private bool IsPlayerRightSide()
+        {
+            Vector3 result = _player.transform.position - this.transform.position;
+
+            if (result.x > 0f)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
     }
 }

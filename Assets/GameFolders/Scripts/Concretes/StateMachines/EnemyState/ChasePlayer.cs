@@ -8,18 +8,19 @@ namespace UdemyProject.StateMachines.EnemyState
 {
     public class ChasePlayer : IState
     {
-        private IEntityController _enemy, _player;
         private IMover _mover;
         private IFlip _flip;
         private IMyAnimation _animation;
+        
+        private System.Func<bool> _isPlayerRightSide;
 
-        public ChasePlayer(IEntityController enemy, IEntityController player, IMover mover, IFlip flip, IMyAnimation animation)
+        public ChasePlayer(IMover mover, IFlip flip, IMyAnimation animation, 
+            System.Func<bool> isPlayerRightSide)
         {
-            _enemy = enemy;
-            _player = player;
             _mover = mover;
             _flip = flip;
             _animation = animation;
+            _isPlayerRightSide = isPlayerRightSide;
         }
         public void OnEnter()
         {
@@ -35,9 +36,7 @@ namespace UdemyProject.StateMachines.EnemyState
 
         public void Tick()
         {
-            Vector3 leftOrRight = _player.transform.position - _enemy.transform.position;
-
-            if (leftOrRight.x > 0)
+            if (_isPlayerRightSide.Invoke())
             {
                 _mover.Tick(1.5f);
                 _flip.FlipCharacter(1f);

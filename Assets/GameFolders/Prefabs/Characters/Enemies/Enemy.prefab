@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3296153393757570896}
   - component: {fileID: 3675645779811176597}
   - component: {fileID: 1755675746714728788}
+  - component: {fileID: 1747869455896174214}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -106,6 +107,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  patrols: []
+  chaseDistance: 3
+  attackDistance: 1
+  attackDelay: 1
 --- !u!114 &3675645779811176597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +137,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+--- !u!114 &1747869455896174214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3139620361158587184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e113c50cc402d22439080bc5dcd0b155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 0.1
+  layermask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &7852466955130963659
 GameObject:
   m_ObjectHideFlags: 0

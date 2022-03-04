@@ -38,10 +38,11 @@ namespace  UdemyProject.Controllers
             
             IHealth health = GetComponent<IHealth>();
             IAttacker attacker = GetComponent<IAttacker>();
+            IStopEdge stopEdge = GetComponent<IStopEdge>();
             
             Idle idle = new Idle(mover, myAnimation);
             Walk walk = new Walk(this, mover, myAnimation, flip, patrols);
-            ChasePlayer chasePlayer = new ChasePlayer(mover, flip, myAnimation, IsPlayerRightSide);
+            ChasePlayer chasePlayer = new ChasePlayer(mover, flip, myAnimation, stopEdge, IsPlayerRightSide);
             Attack attack = new Attack(_player.transform.GetComponent<IHealth>(), flip, myAnimation, attacker, attackDelay, IsPlayerRightSide);
             TakeHit takeHit = new TakeHit(health, myAnimation);
             Dead dead = new Dead(this, myAnimation);

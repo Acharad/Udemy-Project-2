@@ -10,6 +10,8 @@ namespace UdemyProject.Movements
 
         private Collider2D _collider;
         private float _direction;
+        
+        public bool IsRightDirection { get; private set; }
 
         private void Awake()
         {
@@ -29,14 +31,26 @@ namespace UdemyProject.Movements
 
             //if hit.collider doesn't hit selected layermask return false.
             if (hit.collider != null)
+            {
+                _direction = transform.localScale.x;
                 return false;
+            }
             //if hit return true.
             return true;
         }
 
         private float GetXPosition()
         {
-            return _direction == 1f ? _collider.bounds.max.x + 0.1f : _collider.bounds.min.x - 0.1f;
+            IsRightDirection = _direction == 1f; 
+            
+            if (IsRightDirection)
+            {
+                return _collider.bounds.max.x;
+            }
+            else
+            {
+                return _collider.bounds.min.x;
+            }
         }
     }
 }

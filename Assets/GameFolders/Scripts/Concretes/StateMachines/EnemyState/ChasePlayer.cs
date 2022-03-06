@@ -40,6 +40,7 @@ namespace UdemyProject.StateMachines.EnemyState
         {
             if (_stopEdge.ReachEdge())
             {
+                Debug.Log("ReachEdge");
                 _animation.MoveAnimation(0f);
                 return;
             }

@@ -23,9 +23,41 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2833560005522666977, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: dcfcd3c1f47c79c4a8b9679fd0ac0bda, type: 2}
     - target: {fileID: 3139620361158587184, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
       propertyPath: m_Name
-      value: Enemy Variant
+      value: MossGiant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296153393757570896, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: moveSpeed
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296153393757570896, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: attackDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296153393757570896, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: chaseDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296153393757570896, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: attackDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296153393757570896, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: patrols.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296153393757570896, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: patrols.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296153393757570896, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: patrols.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6042881283634332566, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
       propertyPath: m_Size.x
@@ -90,6 +122,22 @@ PrefabInstance:
     - target: {fileID: 6844503405255322944, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866828710465621882, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: m_Size.x
+      value: 1.4643242
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866828710465621882, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: m_Size.y
+      value: 2.285821
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866828710465621882, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.18930149
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866828710465621882, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.28573793
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}

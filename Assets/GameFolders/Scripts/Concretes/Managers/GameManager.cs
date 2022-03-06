@@ -26,6 +26,20 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
     }
 
+    public void SplashScreen()
+    {
+        StartCoroutine(SplashScreenAsync());
+    }
+    
+    private IEnumerator SplashScreenAsync()
+    {
+        yield return SceneManager.LoadSceneAsync("SplashScreen");
+
+        yield return new WaitForSeconds(3f);
+        
+        StartGame();
+    }
+    
     public void StartGame()
     {
         StartCoroutine(StartGameAsync());
@@ -33,12 +47,17 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartGameAsync()
     {
-        yield return null;
+        yield return SceneManager.LoadSceneAsync("Game");
     }
 
     public void ReturnMenu()
     {
         
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using UdemyProject.Abstracts.Animations;
 using UdemyProject.Abstracts.Combats;
 using UdemyProject.Abstracts.Controllers;
@@ -30,7 +31,7 @@ namespace  UdemyProject.Controllers
             _player = FindObjectOfType<PlayerController>();
         }
 
-        private void Start()
+        private IEnumerator Start()
         {
             IMover mover = new Mover(this, moveSpeed);
             IMyAnimation myAnimation = new PlayerAnimation(GetComponent<Animator>());
@@ -62,6 +63,8 @@ namespace  UdemyProject.Controllers
             _stateMachine.AddTransition(takeHit, chasePlayer, () => !takeHit.IsTakeHit);
 
             _stateMachine.SetState(idle);
+
+            yield return null;
         }
 
         private void Update()

@@ -40,9 +40,6 @@ namespace UdemyProject.StateMachines.EnemyState
                     _controller.transform.gameObject.GetComponent<CapsuleCollider2D>();
                 capsuleCollider2D.enabled = false;
             }
-                
-            
-            Debug.Log("Dead tick");
         }
     }
 }

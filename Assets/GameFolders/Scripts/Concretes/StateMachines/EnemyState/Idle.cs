@@ -48,8 +48,6 @@ namespace UdemyProject.StateMachines.EnemyState
 
             if (_currentStandTime > _maxStandTime)
                 IsIdle = false;
-            
-            Debug.Log("Idle tick");
         }
     }
 }

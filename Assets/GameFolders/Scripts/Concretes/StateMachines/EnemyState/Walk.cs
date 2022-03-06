@@ -1,8 +1,11 @@
+using System.Numerics;
 using UdemyProject.Abstracts.Animations;
 using UdemyProject.Abstracts.Controllers;
 using UdemyProject.Abstracts.Movements;
 using UdemyProject.Abstracts.StateMachines;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 namespace UdemyProject.StateMachines.EnemyState
 {
@@ -44,6 +47,7 @@ namespace UdemyProject.StateMachines.EnemyState
             
             _animation.MoveAnimation(1f);
             IsWalking = true;
+            Debug.Log(_currentPatrol);
             Debug.Log("Walk on enter");
         }
 
@@ -53,7 +57,7 @@ namespace UdemyProject.StateMachines.EnemyState
             // _flip.FlipCharacter(_direction);
             _animation.MoveAnimation(0f);
             IsWalking = false;
-            Debug.Log("Walk on exit");
+            
 
             _patrolIndex++;
             
@@ -61,19 +65,24 @@ namespace UdemyProject.StateMachines.EnemyState
                 _patrolIndex = 0;
             
             Debug.Log(_currentPatrol);
+            Debug.Log("Walk on exit");
         }
 
         public void Tick()
         {
             if (_currentPatrol == null) return;
-            
-            if (Vector2.Distance(_entityController.transform.position, _currentPatrol.position) <= 0.2f)
+
+            Vector2 enemyPosition = _entityController.transform.position;
+            enemyPosition.y = 0f;
+            Vector2 currentPosition = _currentPatrol.position;
+            currentPosition.y = 0f;
+
+            if (Vector2.Distance(enemyPosition, currentPosition) <= 0.2f)
             {
                 IsWalking = false;
                 return;
             }
             _mover.Tick(_direction);
-            Debug.Log("Walk tick");
         }
     }
 }

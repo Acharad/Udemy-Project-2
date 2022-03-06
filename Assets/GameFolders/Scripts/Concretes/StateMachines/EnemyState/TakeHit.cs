@@ -42,10 +42,6 @@ namespace UdemyProject.StateMachines.EnemyState
                 
                 IsTakeHit = false;
             }
-                
-            
-            
-            Debug.Log("TakeHit tick");
         }
     }
 }

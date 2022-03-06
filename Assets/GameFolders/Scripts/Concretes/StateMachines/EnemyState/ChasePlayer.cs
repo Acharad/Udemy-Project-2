@@ -54,8 +54,6 @@ namespace UdemyProject.StateMachines.EnemyState
                 _mover.Tick(-1.5f);
                 _flip.FlipCharacter(-1f);
             }
-                
-            Debug.Log("ChasePlayer on tick");
         }
     }
 }

@@ -55,7 +55,6 @@ namespace UdemyProject.StateMachines.EnemyState
                 _attacker.Attack(_playerHealth);
                 _currentAttackDelayTime = 0f;
             }
-            Debug.Log("Attack tick");
         }
     }
 }

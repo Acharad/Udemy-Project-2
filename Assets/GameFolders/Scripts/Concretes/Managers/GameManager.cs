@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UdemyProje3.Enums;
+using UdemyProje.Enums;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UdemyProje3.Managers
+namespace UdemyProje.Managers
 {
     public class GameManager : MonoBehaviour
     {
@@ -47,13 +47,27 @@ namespace UdemyProje3.Managers
                 Destroy(this.gameObject);
             }
         }
-
-        public void SplashScreen(SceneTypeEnum sceneTypeEnum)
+        
+        public void SplashScreen(string sceneName)
         {
-            StartCoroutine(SplashScreenAsync(sceneTypeEnum));
+            SceneTypeEnum sceneType;
+            switch (sceneName)
+            {
+                case "Game":
+                    sceneType = SceneTypeEnum.Game;
+                    break;
+                case "SplashScreen":
+                    sceneType = SceneTypeEnum.SplashScreen;
+                    break;
+                default:
+                    sceneType = SceneTypeEnum.Menu;
+                    break;
+            }
+            
+            StartCoroutine(SplashScreenAsync(sceneName, sceneType));
         }
 
-        private IEnumerator SplashScreenAsync(SceneTypeEnum sceneType)
+        private IEnumerator SplashScreenAsync(string sceneName,SceneTypeEnum sceneType)
         {
             yield return SceneManager.LoadSceneAsync(SceneTypeEnum.SplashScreen.ToString(), LoadSceneMode.Additive);
             OnSceneChanged?.Invoke(SceneTypeEnum.SplashScreen);

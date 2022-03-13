@@ -18,7 +18,7 @@ namespace UdemyProject.StateMachines.EnemyState
 
         public TakeHit(IHealth health, IMyAnimation animation)
         {
-            health.OnHealthChanged += OnEnter;
+            health.OnHealthChanged += (currentHealth,maxHealth) => OnEnter();
             _animation = animation;
         }
         public void OnEnter()

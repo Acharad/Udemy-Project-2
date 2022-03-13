@@ -8,8 +8,7 @@ namespace UdemyProject.Abstracts.Combats
     {
         bool IsDead { get; }
         void Heal(int lifeCount);
-        // event System.Action<int,int> OnHealthChanged;
-        event System.Action OnHealthChanged;
+        event System.Action<int,int> OnHealthChanged;
         event System.Action OnDead;
         
     }

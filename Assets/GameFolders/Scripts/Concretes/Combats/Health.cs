@@ -18,14 +18,8 @@ namespace UdemyProject.Combats
         {
             throw new NotImplementedException();
         }
-        
-        // event Action<int, int> IHealth.OnHealthChanged
-        // {
-        //     add => throw new NotImplementedException();
-        //     remove => throw new NotImplementedException();
-        // }
 
-        public event Action OnHealthChanged;
+        public event Action<int, int> OnHealthChanged;
         public event Action OnDead;
         
         private void Awake()
@@ -38,7 +32,7 @@ namespace UdemyProject.Combats
             if (IsDead) return;
             
             _currentHealth -= attacker.Damage;
-            OnHealthChanged?.Invoke();
+            OnHealthChanged?.Invoke(_currentHealth, maxHealth);
         }
     }    
 }

@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 600b8fae68cb9884cabce7f2c16ff3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 3
 --- !u!114 &261915665211591745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   attackDirection: {fileID: 2313900886714827414}
-  attackRadius: 1
+  attackRadius: 0.5
 --- !u!114 &2250628280050682897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe1be63402cb3245a61be1e3399e330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 100
 --- !u!114 &9032576581795248284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,7 +419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7347741755104716625}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.23, y: 0, z: -0}
+  m_LocalPosition: {x: 0.16, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1143477719467463847}

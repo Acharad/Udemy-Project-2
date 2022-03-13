@@ -279,6 +279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4825392336290081896, guid: 4290feec21397d140bd3fdef0403e53f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4290feec21397d140bd3fdef0403e53f, type: 3}
 --- !u!1 &840371734 stripped
@@ -396,6 +400,10 @@ PrefabInstance:
     - target: {fileID: 4133545744037421801, guid: d0d3dc6cc4be2a941a8ec4ee3ee10739, type: 3}
       propertyPath: m_Name
       value: MenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7462404854506229415, guid: d0d3dc6cc4be2a941a8ec4ee3ee10739, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7462404854506229415, guid: d0d3dc6cc4be2a941a8ec4ee3ee10739, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

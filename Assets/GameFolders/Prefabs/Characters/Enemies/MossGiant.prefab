@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1755675746714728788, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2833560005522666977, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
       propertyPath: m_Controller
       value: 
@@ -58,6 +62,10 @@ PrefabInstance:
     - target: {fileID: 3296153393757570896, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
       propertyPath: patrols.Array.data[1]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3675645779811176597, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: damage
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6042881283634332566, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
       propertyPath: m_Size.x
@@ -129,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6866828710465621882, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
       propertyPath: m_Size.y
-      value: 2.285821
+      value: 2.2978272
       objectReference: {fileID: 0}
     - target: {fileID: 6866828710465621882, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
       propertyPath: m_Offset.x
@@ -137,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6866828710465621882, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
       propertyPath: m_Offset.y
-      value: -0.28573793
+      value: -0.29174113
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}

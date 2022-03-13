@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: patrols.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3675645779811176597, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6042881283634332566, guid: 3b83dcb284b37d94792d44266387f82d, type: 3}
       propertyPath: m_Size.x
       value: 0.47913006

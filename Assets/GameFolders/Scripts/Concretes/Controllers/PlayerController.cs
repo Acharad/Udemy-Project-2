@@ -1,12 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UdemyProject.Abstracts.Inputs;
 using UdemyProject.Abstracts.Movements;
 using UdemyProject.Abstracts.Animations;
+using UdemyProject.Abstracts.Combats;
 using UdemyProject.Abstracts.Controllers;
 using UdemyProject.Inputs;
 using UdemyProject.Movements;
 using UdemyProject.Animations;
+using UdemyProject.Uis;
 using UnityEngine;
 
 namespace UdemyProject.Controllers
@@ -15,18 +18,15 @@ namespace UdemyProject.Controllers
     {
         [SerializeField] private float moveSpeed = 3f;
         
-        IPlayerInput _input;
-        IMover _mover;
-        IMyAnimation _animation;
-        IFlip _flip;
-        
+        private IPlayerInput _input;
+        private IMover _mover;
+        private IMyAnimation _animation;
+        private IFlip _flip;
+        private IJump _jump;
+        private IOnGround _iOnGround;
+        private IHealth _health;
 
-        IJump _jump;
-        IOnGround _iOnGround;
-
-        float _horizontal;
-        // bool _isJump = false;
-        // bool _isAttack = false;
+        private float _horizontal;
 
         private void Awake()
         {
@@ -36,10 +36,19 @@ namespace UdemyProject.Controllers
             _flip = new FlipWithTransform(this);
             _iOnGround = GetComponent<IOnGround>();
             _jump = new JumpMultiple(GetComponent<Rigidbody2D>(), _iOnGround);
+            _health = GetComponent<IHealth>();
+        }
+
+        private void Start()
+        {
+            var gameOverObject = FindObjectOfType<GameOverObject>();
+            gameOverObject.SetPlayerHealth(_health);
         }
 
         private void Update()
         {
+            if (_health.IsDead) return;
+            
             _horizontal = _input.Horizontal;
 
             if(_input.AttackButtonDown)

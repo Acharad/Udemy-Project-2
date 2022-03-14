@@ -33,6 +33,8 @@ namespace UdemyProject.Combats
             
             _currentHealth -= attacker.Damage;
             OnHealthChanged?.Invoke(_currentHealth, maxHealth);
+
+            if (IsDead) OnDead?.Invoke();
         }
     }    
 }

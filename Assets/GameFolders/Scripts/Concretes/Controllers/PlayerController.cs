@@ -39,6 +39,11 @@ namespace UdemyProject.Controllers
             _health = GetComponent<IHealth>();
         }
 
+        private void OnEnable()
+        {
+            _health.OnDead += _animation.DeadAnimation;
+        }
+
         private void Start()
         {
             var gameOverObject = FindObjectOfType<GameOverObject>();

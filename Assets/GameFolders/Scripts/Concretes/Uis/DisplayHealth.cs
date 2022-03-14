@@ -24,6 +24,7 @@ namespace UdemyProject.Uis
         {
             _health = FindObjectOfType<PlayerController>().GetComponent<Health>();
             _health.OnHealthChanged += HandleHealthChanged;
+            _healthImage.fillAmount = 1f;
         }
         
         private void OnDisable()

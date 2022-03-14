@@ -187,14 +187,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1614523057, guid: 4290feec21397d140bd3fdef0403e53f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 827388992277001114, guid: 4290feec21397d140bd3fdef0403e53f, type: 3}
-      propertyPath: canvasObject
-      value: 
-      objectReference: {fileID: 1595003495}
     - target: {fileID: 1686176228403700010, guid: 4290feec21397d140bd3fdef0403e53f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -283,10 +275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4825392336290081896, guid: 4290feec21397d140bd3fdef0403e53f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 9073401037114638250, guid: 4290feec21397d140bd3fdef0403e53f, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 1530967563}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4290feec21397d140bd3fdef0403e53f, type: 3}
 --- !u!1001 &1081327820
@@ -434,9 +426,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6b498f6703cb34b8ff36b7111af8cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1595003495 stripped
+--- !u!1 &1530967563 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4825392336290081896, guid: 4290feec21397d140bd3fdef0403e53f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 646492988062695637, guid: 4290feec21397d140bd3fdef0403e53f, type: 3}
   m_PrefabInstance: {fileID: 840371733}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1636373680

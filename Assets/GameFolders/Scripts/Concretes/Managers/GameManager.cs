@@ -48,7 +48,7 @@ namespace UdemyProje.Managers
             }
         }
         
-        public void SplashScreen(string sceneName)
+        public void SplashScreen(string sceneName = "Menu")
         {
             SceneTypeEnum sceneType;
             switch (sceneName)

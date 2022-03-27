@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1683636681017581413}
   - component: {fileID: 2416399437102075916}
+  - component: {fileID: 2147134265823197914}
+  - component: {fileID: 8816211094125231673}
   m_Layer: 0
   m_Name: Score
   m_TagString: Untagged
@@ -51,6 +53,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2147134265823197914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780324492021611733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c970c6dee66294ba72fb972d888710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &8816211094125231673
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780324492021611733}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.005826523, y: -0.089338556}
+  m_Size: {x: 0.8485167, y: 0.51835716}
+  m_Direction: 1
 --- !u!1 &4582564969099644910
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,8 +105,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4582564969099644910}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.67, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1683636681017581413}

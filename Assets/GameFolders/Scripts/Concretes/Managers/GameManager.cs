@@ -91,7 +91,7 @@ namespace UdemyProje.Managers
             Application.Quit();
         }
 
-        public void IncreaseScore(int scorePoint)
+        public void IncreaseScore(int scorePoint = 5)
         {
             score += scorePoint;
             OnScoreChanged?.Invoke(score);

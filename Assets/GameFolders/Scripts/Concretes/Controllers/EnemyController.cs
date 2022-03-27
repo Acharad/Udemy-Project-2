@@ -8,6 +8,7 @@ using UdemyProject.Movements;
 using UdemyProject.StateMachines;
 using UdemyProject.StateMachines.EnemyState;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace  UdemyProject.Controllers
 {
@@ -22,8 +23,9 @@ namespace  UdemyProject.Controllers
         [SerializeField] private float attackDistance = 1f;
         [SerializeField] private float attackDelay = 1f;
 
+        [FormerlySerializedAs("score")]
         [Header("Score")] 
-        [SerializeField] private GameObject score;
+        [SerializeField] private ScoreController scorePrefab;
         
         private StateMachine _stateMachine;
         private IEntityController _player;
@@ -49,7 +51,7 @@ namespace  UdemyProject.Controllers
             ChasePlayer chasePlayer = new ChasePlayer(mover, flip, myAnimation, stopEdge, IsPlayerRightSide);
             Attack attack = new Attack(_player.transform.GetComponent<IHealth>(), flip, myAnimation, attacker, attackDelay, IsPlayerRightSide);
             TakeHit takeHit = new TakeHit(health, myAnimation);
-            Dead dead = new Dead(this, myAnimation, () => Instantiate(score, transform.position, Quaternion.identity));
+            Dead dead = new Dead(this, myAnimation, () => Instantiate(scorePrefab, transform.position, Quaternion.identity));
             
             _stateMachine.AddTransition(idle, walk, () => !idle.IsIdle );
             _stateMachine.AddTransition(idle, chasePlayer, () => DistanceFromMeToPlayer() < chaseDistance);

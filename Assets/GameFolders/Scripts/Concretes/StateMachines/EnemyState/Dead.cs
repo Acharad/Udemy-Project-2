@@ -10,18 +10,22 @@ namespace UdemyProject.StateMachines.EnemyState
         private IEntityController _controller;
         private IMyAnimation _animation;
 
+        private System.Action _deadCallback;
+
         private float _currentTime = 0f;
 
-        public Dead(IEntityController controller, IMyAnimation animation)
+        public Dead(IEntityController controller, IMyAnimation animation, System.Action deadCallback)
         {
             _controller = controller;
             _animation = animation;
+            _deadCallback = deadCallback;
         }
         
         public void OnEnter()
         {
             _animation.DeadAnimation();
             Debug.Log("Dead on enter");
+            _deadCallback?.Invoke();
         }
 
         public void OnExit()

@@ -21,6 +21,9 @@ namespace  UdemyProject.Controllers
         [SerializeField] private float chaseDistance = 3f;
         [SerializeField] private float attackDistance = 1f;
         [SerializeField] private float attackDelay = 1f;
+
+        [Header("Score")] 
+        [SerializeField] private GameObject score;
         
         private StateMachine _stateMachine;
         private IEntityController _player;
@@ -46,7 +49,7 @@ namespace  UdemyProject.Controllers
             ChasePlayer chasePlayer = new ChasePlayer(mover, flip, myAnimation, stopEdge, IsPlayerRightSide);
             Attack attack = new Attack(_player.transform.GetComponent<IHealth>(), flip, myAnimation, attacker, attackDelay, IsPlayerRightSide);
             TakeHit takeHit = new TakeHit(health, myAnimation);
-            Dead dead = new Dead(this, myAnimation);
+            Dead dead = new Dead(this, myAnimation, () => Instantiate(score, transform.position, Quaternion.identity));
             
             _stateMachine.AddTransition(idle, walk, () => !idle.IsIdle );
             _stateMachine.AddTransition(idle, chasePlayer, () => DistanceFromMeToPlayer() < chaseDistance);

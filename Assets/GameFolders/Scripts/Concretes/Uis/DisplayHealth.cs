@@ -17,7 +17,6 @@ namespace UdemyProject.Uis
         private void Awake()
         {
             _healthImage = GetComponent<Image>();
-
         }
 
         private void OnEnable()

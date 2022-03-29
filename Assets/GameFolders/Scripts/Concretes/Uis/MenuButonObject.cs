@@ -6,16 +6,17 @@ using UnityEngine;
 
 namespace UdemyProject.Uis
 {
-    public class GameOverPanel : MonoBehaviour
+    public class MenuButonObject : MonoBehaviour
     {
-        public void YesButton()
+        public void StartGame()
         {
             GameManager.Instance.SplashScreen(SceneTypeEnum.Game);
         }
 
-        public void NoButton()
+        public void QuitGame()
         {
-            GameManager.Instance.SplashScreen(SceneTypeEnum.Menu);
+            GameManager.Instance.QuitGame();
         }
     }
 }
+

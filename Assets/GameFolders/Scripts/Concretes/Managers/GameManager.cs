@@ -48,26 +48,12 @@ namespace UdemyProje.Managers
             }
         }
         
-        public void SplashScreen(string sceneName = "Menu")
+        public void SplashScreen(SceneTypeEnum sceneType)
         {
-            SceneTypeEnum sceneType;
-            switch (sceneName)
-            {
-                case "Game":
-                    sceneType = SceneTypeEnum.Game;
-                    break;
-                case "SplashScreen":
-                    sceneType = SceneTypeEnum.SplashScreen;
-                    break;
-                default:
-                    sceneType = SceneTypeEnum.Menu;
-                    break;
-            }
-            
-            StartCoroutine(SplashScreenAsync(sceneName, sceneType));
+            StartCoroutine(SplashScreenAsync(sceneType));
         }
 
-        private IEnumerator SplashScreenAsync(string sceneName,SceneTypeEnum sceneType)
+        private IEnumerator SplashScreenAsync(SceneTypeEnum sceneType)
         {
             yield return SceneManager.LoadSceneAsync(SceneTypeEnum.SplashScreen.ToString(), LoadSceneMode.Additive);
             OnSceneChanged?.Invoke(SceneTypeEnum.SplashScreen);

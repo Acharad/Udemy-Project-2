@@ -14,11 +14,7 @@ namespace UdemyProject.Combats
         public int CurrentHealth => _currentHealth;
 
         public bool IsDead => _currentHealth < 1;
-        public void Heal(int lifeCount)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public event Action<int, int> OnHealthChanged;
         public event Action OnDead;
         
@@ -31,11 +27,17 @@ namespace UdemyProject.Combats
         {
             if (IsDead) return;
             
-            _currentHealth -= attacker.Damage;
+            _currentHealth -= Mathf.Max(_currentHealth -= attacker.Damage, 0) ;
             OnHealthChanged?.Invoke(_currentHealth, maxHealth);
 
             Debug.Log(IsDead);
             if (IsDead) OnDead?.Invoke();
+        }
+        
+        public void Heal(int lifeCount)
+        {
+            _currentHealth = Mathf.Max(_currentHealth += lifeCount, maxHealth);
+            OnHealthChanged?.Invoke(_currentHealth, maxHealth);
         }
     }    
 }

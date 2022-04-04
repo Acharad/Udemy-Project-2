@@ -403,14 +403,14 @@ PrefabInstance:
     - target: {fileID: 3912063853032725468, guid: d0d3dc6cc4be2a941a8ec4ee3ee10739, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1870937955}
+      objectReference: {fileID: 1272442600}
     - target: {fileID: 3912063853032725468, guid: d0d3dc6cc4be2a941a8ec4ee3ee10739, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuitGame
       objectReference: {fileID: 0}
     - target: {fileID: 3912063853032725468, guid: d0d3dc6cc4be2a941a8ec4ee3ee10739, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UdemyProject.Uis.MenuButonObject, Assembly-CSharp
+      value: UdemyProje.Managers.GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4133545744037421801, guid: d0d3dc6cc4be2a941a8ec4ee3ee10739, type: 3}
       propertyPath: m_Name
@@ -418,19 +418,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7462404854506229415, guid: d0d3dc6cc4be2a941a8ec4ee3ee10739, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7462404854506229415, guid: d0d3dc6cc4be2a941a8ec4ee3ee10739, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1870937955}
+      objectReference: {fileID: 1272442600}
     - target: {fileID: 7462404854506229415, guid: d0d3dc6cc4be2a941a8ec4ee3ee10739, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
+      value: SplashScreen
       objectReference: {fileID: 0}
     - target: {fileID: 7462404854506229415, guid: d0d3dc6cc4be2a941a8ec4ee3ee10739, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UdemyProject.Uis.MenuButonObject, Assembly-CSharp
+      value: UdemyProje.Managers.GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0d3dc6cc4be2a941a8ec4ee3ee10739, type: 3}
@@ -439,6 +439,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4133545744037421801, guid: d0d3dc6cc4be2a941a8ec4ee3ee10739, type: 3}
   m_PrefabInstance: {fileID: 1081327820}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1272442600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3780370083091556804, guid: a1818e36af9304d4ea0b6ad18efe9100, type: 3}
+  m_PrefabInstance: {fileID: 1636373680}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6b498f6703cb34b8ff36b7111af8cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1530967563 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 646492988062695637, guid: 4290feec21397d140bd3fdef0403e53f, type: 3}
@@ -501,17 +512,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1818e36af9304d4ea0b6ad18efe9100, type: 3}
---- !u!114 &1870937955 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 154826948401081838, guid: d0d3dc6cc4be2a941a8ec4ee3ee10739, type: 3}
-  m_PrefabInstance: {fileID: 1081327820}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ba4d8d69e431644aa2e56cab67f5bf9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2061573335
 PrefabInstance:
   m_ObjectHideFlags: 0

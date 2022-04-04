@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UdemyProje.Managers;
 using UdemyProject.Abstracts.Inputs;
 using UdemyProject.Abstracts.Movements;
 using UdemyProject.Abstracts.Animations;
@@ -42,6 +43,7 @@ namespace UdemyProject.Controllers
         private void OnEnable()
         {
             _health.OnDead += _animation.DeadAnimation;
+            _health.OnDead += GameManager.Instance.SaveScore;
         }
 
         private void Start()

@@ -16,17 +16,20 @@ namespace UdemyProject.Controllers
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            IsPlayerTriggered(true);
+            IsPlayerTriggered( col,true);
+            Debug.Log("Shop | OnTriggerEnter2D");
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            IsPlayerTriggered(false);
+            IsPlayerTriggered(other, false);
+            Debug.Log("Shop | OnTriggerExit2D");
         }
 
-        private void IsPlayerTriggered(bool trigger)
+        private void IsPlayerTriggered(Collider2D col,bool trigger)
         {
-            var player = GetComponent<PlayerController>();
+            var player = col.GetComponent<PlayerController>();
+            Debug.Log(player);
             if (player != null)
                 _shopGameObject.IsActiveShop(trigger);
         }

@@ -121,7 +121,7 @@ MonoBehaviour:
   chaseDistance: 3
   attackDistance: 1
   attackDelay: 1
-  score: {fileID: 1780324492021611733, guid: 071bcea5ef0d4a24db5db0643b31a8e7, type: 3}
+  scorePrefab: {fileID: 2147134265823197914, guid: 071bcea5ef0d4a24db5db0643b31a8e7, type: 3}
 --- !u!114 &3675645779811176597
 MonoBehaviour:
   m_ObjectHideFlags: 0

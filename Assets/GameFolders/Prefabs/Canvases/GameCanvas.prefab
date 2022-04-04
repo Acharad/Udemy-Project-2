@@ -4171,7 +4171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuestionPanel: {fileID: 8956814835077913432}
-  shop: {fileID: 6831270047608518886}
+  shop: {fileID: 3409229497398655849}
 --- !u!1 &6856049857533051539
 GameObject:
   m_ObjectHideFlags: 0
@@ -4732,7 +4732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75628077c3401a499f3efe1dcf283ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resultPanel: {fileID: 0}
+  resultPanel: {fileID: 5805021537010775059}
 --- !u!1 &7737278224144805534
 GameObject:
   m_ObjectHideFlags: 0

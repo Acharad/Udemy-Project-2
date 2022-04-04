@@ -10,6 +10,7 @@ namespace UdemyProject.Uis
     public class ShopGameObject : MonoBehaviour
     {
         [SerializeField] private QuestionPanel QuestionPanel;
+        [SerializeField] private GameObject shop;
 
         private IHealth _playerHealth;
         private void OnEnable()
@@ -26,6 +27,11 @@ namespace UdemyProject.Uis
         {
             QuestionPanel.gameObject.SetActive(true);
             QuestionPanel.SetLifeCountAndReferences(lifeCount, _playerHealth);
+        }
+
+        public void IsActiveShop(bool isActive)
+        {
+            shop.SetActive(isActive);
         }
     }
 }

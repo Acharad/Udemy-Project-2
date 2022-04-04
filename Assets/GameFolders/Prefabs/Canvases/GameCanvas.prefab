@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: 569280592043488222}
   - component: {fileID: 822462293827450087}
   - component: {fileID: 8395829368693485406}
+  - component: {fileID: 5805021537010775059}
   m_Layer: 5
   m_Name: ResultPanel
   m_TagString: Untagged
@@ -426,6 +427,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5805021537010775059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37191385598564865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8cd9a240251e5478dfc8135b0a7453, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &137634020108438104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,9 +2067,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: YesClick
+      - m_Target: {fileID: 8956814835077913432}
+        m_TargetAssemblyTypeName: UdemyProject.Uis.QuestionPanel, Assembly-CSharp
+        m_MethodName: YesClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4157,6 +4170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0b68853ad29d174882f6876fcd200a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  QuestionPanel: {fileID: 8956814835077913432}
+  shop: {fileID: 6831270047608518886}
 --- !u!1 &6856049857533051539
 GameObject:
   m_ObjectHideFlags: 0
@@ -4637,6 +4652,7 @@ GameObject:
   - component: {fileID: 918936188086042592}
   - component: {fileID: 5782481504676096187}
   - component: {fileID: 3425330134691572789}
+  - component: {fileID: 8956814835077913432}
   m_Layer: 5
   m_Name: QuestionPanel
   m_TagString: Untagged
@@ -4704,6 +4720,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8956814835077913432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7562604274900668273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b75628077c3401a499f3efe1dcf283ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resultPanel: {fileID: 0}
 --- !u!1 &7737278224144805534
 GameObject:
   m_ObjectHideFlags: 0
@@ -4887,7 +4916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1f5a70f3898b946b7714eca63466d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 7907146986397210159}
+  gameOverPanel: {fileID: 646492988062695637}
 --- !u!1 &8492755429283381649
 GameObject:
   m_ObjectHideFlags: 0

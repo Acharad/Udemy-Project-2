@@ -15,6 +15,7 @@ namespace UdemyProject.Controllers
             if (col.GetComponent<PlayerController>() != null)
             {
                 GameManager.Instance.IncreaseScore(scorePoint);
+                Destroy(this.gameObject);
             }
         }
     }

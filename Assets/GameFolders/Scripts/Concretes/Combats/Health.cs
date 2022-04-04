@@ -9,9 +9,7 @@ namespace UdemyProject.Combats
     public class Health : MonoBehaviour, IHealth
     {
         [SerializeField] int maxHealth = 3;
-        int _currentHealth;
-        
-        public int CurrentHealth => _currentHealth;
+        [SerializeField] int _currentHealth;
 
         public bool IsDead => _currentHealth < 1;
         
@@ -25,12 +23,13 @@ namespace UdemyProject.Combats
 
         public void TakeHit(IAttacker attacker)
         {
+            Debug.Log("IsDead = " + IsDead);
             if (IsDead) return;
             
-            _currentHealth -= Mathf.Max(_currentHealth -= attacker.Damage, 0) ;
+            _currentHealth -= attacker.Damage;
             OnHealthChanged?.Invoke(_currentHealth, maxHealth);
-
-            Debug.Log(IsDead);
+            
+            Debug.Log("IsDead = " + IsDead);
             if (IsDead) OnDead?.Invoke();
         }
         

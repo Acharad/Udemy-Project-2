@@ -37,12 +37,11 @@ namespace UdemyProject.StateMachines.EnemyState
 
         public void Tick()
         {
-            if (_currentTime > 3f)
+            _currentTime += Time.deltaTime;
+            if (_currentTime > 1.5f)
             {
+                Debug.Log("Dead Tick" + _controller.transform.gameObject);
                 Object.Destroy(_controller.transform.gameObject);
-                CapsuleCollider2D capsuleCollider2D =
-                    _controller.transform.gameObject.GetComponent<CapsuleCollider2D>();
-                capsuleCollider2D.enabled = false;
             }
         }
     }
